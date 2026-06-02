@@ -2,6 +2,9 @@
 
 保存一些常用的docker配置
 
-pansou 一款好用的搜索工具
+bitmagnet bittorrent DHT搜索工具
 
-bitmagnet 一款好用的bittorrent搜索工具
+gitea 源码管理私人部署
+
+pansou 网盘搜索
+
