@@ -1,13 +1,15 @@
+env_file:
+  - env
 networks:
   lan13:
     name: lan13
     driver: macvlan
     driver_opts:
-      parent: eth1
+      parent: ${NIC:-eth1}
     ipam:
       config:
-        - subnet: "192.168.13.0/24"
-          gateway: "192.168.13.254"
+        - subnet: "${NETWORK:-192.168.13.0/24}"
+          gateway: "${GATEWAY:-192.168.13.254}"
   bitmagnet-network:
 
 services:
@@ -42,7 +44,7 @@ services:
       - "./bitmagnet:/root/.config/bitmagnet"
     networks:
       lan13:
-        ipv4_address: 192.168.13.168
+        ipv4_address: ${BITMAGNET_IP:-192.168.13.168}
       bitmagnet-network:
   postgres:
     image: docker.io/postgres:16-alpine

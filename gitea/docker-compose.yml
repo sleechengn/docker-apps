@@ -38,7 +38,7 @@ services:
     #image: 192.168.13.73:5000/mysql:8
     hostname: "gitea-db"
     container_name: "gitea-db"
-    restart: unless-stopped
+    restart: always
     ports:
       - "23306:3306"
     environment:
