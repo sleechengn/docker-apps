@@ -1,3 +1,7 @@
 # docker-apps
 
-docker compose 命令，可以使用docker,podman一键运行
+保存一些常用的docker配置
+
+pansou 一款好用的搜索工具
+
+bitmagnet 一款好用的bittorrent搜索工具
