@@ -2,7 +2,7 @@
 
 保存一些常用的docker配置
 
-bitmagnet bittorrent DHT搜索工具
+bitmagnet DHT搜索
 
 gitea 源码管理私人部署
 
