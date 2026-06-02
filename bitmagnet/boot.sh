@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 if [ ! -e "$(dirname $0)/bitmagnet" ]; then
 	mkdir $(dirname $0)/bitmagnet
 fi

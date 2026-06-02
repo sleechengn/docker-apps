@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 if [ ! -e "$(dirname $0)/database" ]; then
 	mkdir $(dirname $0)/database
 fi

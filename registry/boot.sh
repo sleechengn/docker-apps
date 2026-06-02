@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 if [ ! -e "$(dirname $0)/registry" ]; then
 	mkdir $(dirname $0)/registry
 fi
