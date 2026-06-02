@@ -1,6 +1,8 @@
 # docker-apps
 
 保存一些常用的docker配置
+###注意
+docker compose 里面的网络要根据实际环境改正，这里只是我环境的配置
 
 bitmagnet DHT搜索
 
