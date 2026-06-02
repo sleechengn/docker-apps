@@ -1,0 +1,41 @@
+networks:
+  lan13:
+    name: lan13
+    driver: macvlan
+    driver_opts:
+      parent: eth1
+    ipam:
+      config:
+        - subnet: "192.168.13.0/24"
+          gateway: "192.168.13.254"
+services:
+  registry:
+    container_name: "registry"
+    hostname: "registry"
+    image: docker.io/registry:latest
+    restart: always
+    cap_add:
+      - "NET_BIND_SERVICE"
+    environment:
+      REGISTRY_HTTP_ADDR: "0.0.0.0:5000"
+      REGISTRY_STORAGE_DELETE_ENABLED: true
+    volumes:
+      - "./registry:/var/lib/registry"
+    networks:
+      lan13:
+        ipv4_address: 192.168.13.73
+  registry-browser:
+    container_name: "registry-browser"
+    hostname: "registry-browser"
+    image: "docker.io/klausmeyer/docker-registry-browser"
+    restart: always
+    cap_add:
+      - "NET_BIND_SERVICE"
+    environment:
+      - SECRET_KEY_BASE=0c11bc7a755901fcbb5ba0ef5e6ede0911452e9c944d4ab0d8eb3ee1cf8ff7dd4f8fee82615415f5dc665763c6b18b3b8aee6655f44388bc27b27624f218bf86
+      - DOCKER_REGISTRY_URL=http://192.168.13.73:5000
+      - ENABLE_DELETE_IMAGES=true
+      - PUBLIC_REGISTRY_URL=192.168.13.73:5000
+    networks:
+      lan13:
+        ipv4_address: 192.168.13.53
